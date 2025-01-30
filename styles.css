@@ -1,56 +1,66 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #f0f8ff;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.flower-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .flower {
-  position: relative;
-  width: 200px;
-  height: 200px;
-}
-
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  background-color: yellow;
-  border-radius: 50%;
-  z-index: 2;
+    position: relative;
+    width: 100px;
+    height: 100px;
 }
 
 .petal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 60px;
-  height: 100px;
-  background-color: pink;
-  border-radius: 50%;
-  transform-origin: top left;
-  animation: rotatePetals 6s infinite linear;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgb(255, 20, 147);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgb(255, 20, 147), 0 0 20px rgb(255, 20, 147);
 }
 
-@keyframes rotatePetals {
-  0% {
-    transform: rotate(0deg) translateX(50px);
-  }
-  100% {
-    transform: rotate(360deg) translateX(50px);
-  }
+.petal:nth-child(1) { top: 0; left: 25px; }
+.petal:nth-child(2) { bottom: 0; left: 25px; }
+.petal:nth-child(3) { left: 0; top: 25px; }
+.petal:nth-child(4) { right: 0; top: 25px; }
+
+.center {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    width: 30px;
+    height: 30px;
+    background: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 10px yellow, 0 0 20px yellow;
 }
 
-/* Position each petal */
-.petal:nth-child(2) { transform: rotate(45deg) translateX(50px); }
-.petal:nth-child(3) { transform: rotate(90deg) translateX(50px); }
-.petal:nth-child(4) { transform: rotate(135deg) translateX(50px); }
-.petal:nth-child(5) { transform: rotate(180deg) translateX(50px); }
-.petal:nth-child(6) { transform: rotate(225deg) translateX(50px); }
-.petal:nth-child(7) { transform: rotate(270deg) translateX(50px); }
-.petal:nth-child(8) { transform: rotate(315deg) translateX(50px); }
+.stem {
+    width: 10px;
+    height: 150px;
+    background: rgb(0, 255, 0);
+    position: absolute;
+    top: 80px;
+    left: 45px;
+    box-shadow: 0 0 10px rgb(0, 255, 0);
+}
+
+.leaves {
+    position: absolute;
+    top: 150px;
+    left: 15px;
+    width: 70px;
+    height: 30px;
+    background: rgb(0, 255, 0);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgb(0, 255, 0);
+}
