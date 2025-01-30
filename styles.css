@@ -4,17 +4,54 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
-.flower-container {
+.tree-container {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: growTree 5s ease-in-out infinite alternate;
+    transform-origin: bottom;
+}
+
+@keyframes growTree {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.stem {
+    width: 10px;
+    height: 150px;
+    background: rgb(0, 255, 0);
+    position: relative;
+    box-shadow: 0 0 10px rgb(0, 255, 0);
+    border-radius: 5px;
+}
+
+.leaves {
+    position: absolute;
+    top: 50px;
+    width: 80px;
+    height: 80px;
+    background: rgb(0, 255, 0);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgb(0, 255, 0);
 }
 
 .flower {
-    position: relative;
+    position: absolute;
+    top: -40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100px;
     height: 100px;
 }
@@ -35,32 +72,9 @@ body {
 
 .center {
     position: absolute;
-    top: 35px;
-    left: 35px;
     width: 30px;
     height: 30px;
     background: yellow;
     border-radius: 50%;
     box-shadow: 0 0 10px yellow, 0 0 20px yellow;
-}
-
-.stem {
-    width: 10px;
-    height: 150px;
-    background: rgb(0, 255, 0);
-    position: absolute;
-    top: 80px;
-    left: 45px;
-    box-shadow: 0 0 10px rgb(0, 255, 0);
-}
-
-.leaves {
-    position: absolute;
-    top: 150px;
-    left: 15px;
-    width: 70px;
-    height: 30px;
-    background: rgb(0, 255, 0);
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgb(0, 255, 0);
 }
