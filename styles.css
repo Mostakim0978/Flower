@@ -5,64 +5,89 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden;
+    position: relative;
 }
 
-.tree-container {
+/* Soil base */
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: #5a3e1b;
+    border-top-left-radius: 50% 20px;
+    border-top-right-radius: 50% 20px;
+}
+
+/* Flower container */
+.flower-container {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: growTree 5s ease-in-out infinite alternate;
+    animation: grow 5s ease-in-out forwards;
     transform-origin: bottom;
 }
 
-@keyframes growTree {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+/* Growing animation */
+@keyframes grow {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
+/* Stem */
 .stem {
     width: 10px;
     height: 150px;
-    background: rgb(0, 255, 0);
+    background: green;
     position: relative;
-    box-shadow: 0 0 10px rgb(0, 255, 0);
+    box-shadow: 0 0 10px green;
     border-radius: 5px;
 }
 
+/* Leaves */
 .leaves {
     position: absolute;
     top: 50px;
-    width: 80px;
-    height: 80px;
-    background: rgb(0, 255, 0);
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgb(0, 255, 0);
+    display: flex;
+    gap: 10px;
 }
 
+.leaf {
+    width: 30px;
+    height: 20px;
+    background: green;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 5px green;
+}
+
+.leaf.left {
+    left: -20px;
+    transform: rotate(-30deg);
+}
+
+.leaf.right {
+    right: -20px;
+    transform: rotate(30deg);
+}
+
+/* Flower */
 .flower {
     position: absolute;
     top: -40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100px;
     height: 100px;
 }
 
+/* Petals */
 .petal {
     position: absolute;
     width: 50px;
     height: 50px;
-    background: rgb(255, 20, 147);
+    background: radial-gradient(circle, orange, red);
     border-radius: 50%;
-    box-shadow: 0 0 10px rgb(255, 20, 147), 0 0 20px rgb(255, 20, 147);
+    box-shadow: 0 0 10px orange, 0 0 20px red;
 }
 
 .petal:nth-child(1) { top: 0; left: 25px; }
@@ -70,11 +95,14 @@ body {
 .petal:nth-child(3) { left: 0; top: 25px; }
 .petal:nth-child(4) { right: 0; top: 25px; }
 
+/* Flower Center */
 .center {
     position: absolute;
     width: 30px;
     height: 30px;
     background: yellow;
     border-radius: 50%;
-    box-shadow: 0 0 10px yellow, 0 0 20px yellow;
+    box-shadow: 0 0 10px yellow;
+    top: 35px;
+    left: 35px;
 }
